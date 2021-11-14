@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap');
+
+::-webkit-scrollbar{
+    width: 0.85em
+}
+
+/* ::-webkit-scrollbar-track{
+    background: hsl(120 50% 50% / 1)
+} */
+
+:root{
+    --bkg-col:#0a0a0a;
+    --col:#252324;
+    --mob-bkg-col:#DCE0DF;
+    --mob-card-col:#606060;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body {
+    display:flex;
+    flex-direction:column;
+    padding:0;
+    margin: 0;
+    background-color: var(--bkg-col);
+    color:#fefefe;
+    font-family: 'DM Mono', monospace;
+    min-height:100vh;
+}
+
+.card-list{
+    display:flex;
+    flex-grow:1;
+    min-width: 1200px;
+    justify-content: center;
+    align-items:center;
+    /* overflow-x: scroll; */
+    /* border:2px solid red; */
+    padding: 3rem;
+    border:3px solid #B026FF;
+}
+
+.card{
+    display:flex;
+    position:relative;
+    flex-direction: column;
+    justify-content: space-around;
+    background: var(--col);
+    height: 400px;
+    width: 300px;
+    min-width: 250px;
+    padding: 1.5rem;
+    border-radius: 1em;
+    box-shadow: -1rem 0 3rem #000;
+    transition: 200ms;
+}
+
+.card:hover{
+    transform: translateY(-1rem);
+}
+
+.card:hover~.card {
+    transform: translateX(130px);
+}
+
+.card:not(:first-child){
+    margin-left: -130px;
+}
+
+.card-author {
+    position:relative;
+    right:1rem;
+    display:grid;
+    grid-template-columns: 75px 1fr;
+    align-items:center;
+    /* margin:3rem 0 0; */
+    /* margin-right:4em; */
+    /* border:2px solid blue; */
+}
+.author-avatar img {
+    display: block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 16px 10px;
+}
+
+.author-name{
+    /* border:1px solid red; */
+    position:relative;
+    left:0.5rem;
+    top:0.2rem;
+}
+
+.author-name-prefix{
+    font: normal;
+    font-weight: 700;
+    color: #7a7a8c;
+}
+
+@media(max-width:700px){
+    .card-list{
+        border:3px solid #FFF01F;
+        min-width:380px;
+        flex-direction:column-reverse;
+    }
+
+    .card{
+        box-shadow: 0rem 1.1rem 3rem #000;
+    }
+    .card:hover{
+        transform: scale(1.07);
+        box-shadow: 0rem -2rem 3rem #000;
+    }
+    .card:not(:first-child){
+        margin-left: 0;
+    }
+    .card:not(:last-child){
+        margin-top:-50px;
+    }
+    .card:hover~.card {
+        transform: translateY(-65px);
+        box-shadow: 0rem -2.5rem 3rem #000;
+    }
+}
+
